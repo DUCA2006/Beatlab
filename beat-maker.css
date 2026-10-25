@@ -1,0 +1,204 @@
+.beat-maker-section {
+  background: #101014;
+  color: #fff;
+  min-height: 100vh;
+  padding: 20px 14px 100px;
+  box-sizing: border-box;
+}
+
+.beat-maker-section[hidden] {
+  display: none !important;
+}
+
+.beat-maker-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  color: #b7a1ff;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.beat-maker-header button {
+  border: 1px solid #35343e;
+  background: #1b1a22;
+  color: #fff;
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-size: 14px;
+}
+
+.beat-maker-section h2 {
+  margin: 28px 0 5px;
+  font-size: 29px;
+}
+
+.beat-maker-section>p {
+  color: #a5a2b2;
+  font-size: 14px;
+}
+
+.beat-controls {
+  margin-top: 26px;
+  background: #1b1a22;
+  padding: 18px;
+  border-radius: 18px;
+}
+
+.beat-controls label,
+.beat-volume-label {
+  color: #a5a2b2;
+  font-size: 11px;
+  letter-spacing: 1px;
+  font-weight: 800;
+}
+
+.bpm-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 14px;
+}
+
+.bpm-row strong {
+  font-size: 25px;
+}
+
+.bpm-row button {
+  width: 46px;
+  height: 46px;
+  border: 0;
+  border-radius: 14px;
+  background: #302a43;
+  color: #fff;
+  font-size: 26px;
+}
+
+.beat-sequencer {
+  margin-top: 22px;
+  padding: 14px 10px;
+  border-radius: 18px;
+  background: #1b1a22;
+  overflow: hidden;
+}
+
+.beat-step-heading {
+  display: flex;
+  justify-content: space-between;
+  color: #a5a2b2;
+  font-size: 9px;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+.beat-track {
+  margin-bottom: 18px;
+}
+
+.beat-track-name {
+  font-size: 12px;
+  font-weight: 800;
+  margin-bottom: 9px;
+}
+
+.beat-steps {
+  display: grid;
+  grid-template-columns: repeat(16, minmax(0, 1fr));
+  gap: 3px;
+}
+
+.beat-step {
+  min-width: 0;
+  height: 28px;
+  border: 0;
+  border-radius: 4px;
+  background: #34323e;
+  padding: 0;
+}
+
+.beat-step:nth-child(4n + 1) {
+  background: #484451;
+}
+
+.beat-step.active {
+  background: #a78bfa;
+  box-shadow: 0 0 8px #a78bfa55;
+}
+
+.beat-step.playing {
+  outline: 2px solid #fff;
+  outline-offset: 1px;
+}
+
+.beat-main-controls,
+.beat-extra-controls {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.beat-main-controls button,
+.beat-extra-controls button {
+  border: 0;
+  border-radius: 14px;
+  padding: 16px 8px;
+  font-weight: 800;
+  font-size: 13px;
+}
+
+#beatPlay {
+  background: #a78bfa;
+  color: #17131f;
+}
+
+#beatStop {
+  background: #292731;
+  color: #fff;
+}
+
+.beat-extra-controls button {
+  background: #201e29;
+  color: #fff;
+  border: 1px solid #393644;
+}
+
+.beat-volume-label {
+  display: block;
+  margin-top: 24px;
+}
+
+#beatVolume {
+  width: 100%;
+  margin-top: 14px;
+  accent-color: #a78bfa;
+}
+
+#beatMessage {
+  color: #c2b4f5;
+  font-size: 12px;
+  margin-top: 18px;
+  line-height: 1.5;
+}
+
+@media (max-width: 360px) {
+  .beat-maker-section {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+  
+  .beat-sequencer {
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+  
+  .beat-steps {
+    gap: 2px;
+  }
+  
+  .beat-step {
+    height: 24px;
+  }
+}

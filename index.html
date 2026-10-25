@@ -7,6 +7,7 @@
   <meta name="description" content="BEATLAB AI — Your personal AI music studio.">
   <title>BEATLAB AI Studio</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="beat-maker.css">
 </head>
 <body>
   <div class="app">
@@ -146,6 +147,54 @@
     </nav>
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
   </div>
+  <!-- BEAT MAKER STUDIO -->
+<section id="beatMakerSection" class="beat-maker-section" hidden>
+  <div class="beat-maker-header">
+    <button id="closeBeatMaker" type="button">← Back</button>
+    <span>BEATLAB STUDIO</span>
+  </div>
+  
+  <h2>Beat Maker 🎹</h2>
+  <p>Create your own rhythm.</p>
+  
+  <div class="beat-controls">
+    <label for="bpmControl">TEMPO</label>
+    <div class="bpm-row">
+      <button id="bpmDown" type="button">−</button>
+      <strong><span id="bpmValue">110</span> BPM</strong>
+      <button id="bpmUp" type="button">+</button>
+    </div>
+  </div>
+  
+  <div class="beat-sequencer">
+    <div class="beat-step-heading">
+      <span>INSTRUMENT</span>
+      <span>16 STEPS →</span>
+    </div>
+    
+    <div id="beatGrid"></div>
+  </div>
+  
+  <div class="beat-main-controls">
+    <button id="beatPlay" type="button">▶ Play Beat</button>
+    <button id="beatStop" type="button">■ Stop</button>
+  </div>
+  
+  <div class="beat-extra-controls">
+    <button id="beatRandom" type="button">🎲 Random Beat</button>
+    <button id="beatClear" type="button">↺ Clear</button>
+  </div>
+  
+  <label class="beat-volume-label" for="beatVolume">
+    MASTER VOLUME
+  </label>
+  <input id="beatVolume" type="range" min="0" max="100" value="80">
+  
+  <p id="beatMessage" aria-live="polite">
+    Tap the squares to build your rhythm.
+  </p>
+</section>
+
   <script src="config.js"></script>
   <script src="recorder.js"></script>
   <script src="audio-engine.js"></script>
