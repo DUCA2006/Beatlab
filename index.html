@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#0b0b12">
+  <meta name="description" content="BEATLAB AI — Your personal AI music studio.">
+  <title>BEATLAB AI Studio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <a href="#" class="brand" aria-label="Beatlab home">
+        <span class="brand-icon">♫</span>
+        <span>BEATLAB<span class="brand-ai"> AI</span></span>
+      </a>
+      <button class="avatar" id="profileButton" aria-label="Profile">N</button>
+    </header>
+    <main>
+      <section class="welcome">
+        <span class="eyebrow"><span class="live-dot"></span> YOUR PERSONAL MUSIC STUDIO</span>
+        <h1>Make music.<br><span>Feel everything.</span></h1>
+        <p>Your voice. Your sound. Your AI producer.</p>
+      </section>
+      <section class="producer-card">
+        <div class="producer-glow"></div>
+        <div class="producer-top">
+          <span class="pill">✦ AI POWERED</span>
+          <span class="sound-icon">♫</span>
+        </div>
+        <h2>Let's make<br>your next hit.</h2>
+        <p>Drop your vocals. Let AI help you find your sound.</p>
+        <button class="primary-button" id="importButton">
+          <span>＋</span> Import your song
+        </button>
+        <button class="secondary-button" id="recordButton">
+          <span>◉</span> Record something new
+        </button>
+        <input type="file" id="audioInput" accept="audio/*" hidden>
+      </section>
+      <section class="quick-actions">
+        <div class="section-heading">
+          <h2>Your studio</h2>
+          <span>MAKE SOMETHING</span>
+        </div>
+        <div class="action-grid">
+          <button class="action-card" data-section="producer">
+            <span class="action-icon purple">✦</span>
+            <strong>AI Producer</strong>
+            <small>Find your sound</small>
+            <span class="card-arrow">↗</span>
+          </button>
+          <button class="action-card" data-section="beats">
+            <span class="action-icon orange">♫</span>
+            <strong>Beat Maker</strong>
+            <small>Create your rhythm</small>
+            <span class="card-arrow">↗</span>
+          </button>
+          <button class="action-card" data-section="effects">
+            <span class="action-icon blue">≋</span>
+            <strong>Vocal Effects</strong>
+            <small>Shape your vocals</small>
+            <span class="card-arrow">↗</span>
+          </button>
+          <button class="action-card" data-section="library">
+            <span class="action-icon green">▤</span>
+            <strong>My Library</strong>
+            <small>Your saved projects</small>
+            <span class="card-arrow">↗</span>
+          </button>
+        </div>
+      </section>
+      <section class="recording-panel" id="recordingPanel" hidden>
+        <div class="section-heading">
+          <h2>Recording booth</h2>
+          <span class="record-status" id="recordStatus">READY</span>
+        </div>
+        <div class="waveform" id="waveform" aria-label="Audio waveform visualization">
+          <span class="wave-placeholder">YOUR SOUND STARTS HERE</span>
+        </div>
+        <div class="record-timer" id="recordTimer">00:00</div>
+        <p class="record-hint" id="recordHint">Put on your headphones and get ready.</p>
+        <div class="record-controls">
+          <button class="record-main-button" id="recordMainButton">
+            <span class="record-circle"></span>
+            <span id="recordMainLabel">Start recording</span>
+          </button>
+          <button class="stop-button" id="stopRecordButton" disabled>■ Stop</button>
+        </div>
+        <audio id="audioPlayer" controls hidden></audio>
+        <div class="player-controls" id="playerControls" hidden>
+          <span>YOUR RECORDING</span>
+          <button id="newTakeButton">↻ New take</button>
+        </div>
+      </section>
+      <section class="track-panel" id="trackPanel" hidden>
+        <div class="section-heading">
+          <h2 id="trackTitle">Your track</h2>
+          <button class="text-button" id="removeTrackButton">Remove</button>
+        </div>
+        <div class="track-card">
+          <div class="track-art">♫</div>
+          <div class="track-info">
+            <strong id="trackName">My recording</strong>
+            <span id="trackDetails">Ready to play</span>
+          </div>
+          <button class="play-button" id="playButton" aria-label="Play or pause track">▶</button>
+        </div>
+        <audio id="importedPlayer" hidden></audio>
+        <button class="primary-button full-button" id="analyzeButton">
+          ✦ Analyse my song
+        </button>
+        <div class="analysis-result" id="analysisResult" hidden>
+          <h3>AI Producer</h3>
+          <p id="analysisText"></p>
+          <button class="secondary-button" id="changeTrackButton">Choose another song</button>
+        </div>
+      </section>
+      <section class="recent-section">
+        <div class="section-heading">
+          <h2>Made by you</h2>
+          <span id="projectCount">0 PROJECTS</span>
+        </div>
+        <div class="empty-state" id="emptyState">
+          <span class="empty-icon">♫</span>
+          <strong>Your music journey starts here.</strong>
+          <p>Record your first take or import a song to get started.</p>
+        </div>
+        <div class="project-list" id="projectList"></div>
+      </section>
+    </main>
+    <nav class="bottom-nav" aria-label="Main navigation">
+      <button class="nav-item active" data-section="home">
+        <span>⌂</span><small>Home</small>
+      </button>
+      <button class="nav-item" data-section="studio">
+        <span>◉</span><small>Studio</small>
+      </button>
+      <button class="nav-item ai-nav" data-section="producer">
+        <span>✦</span><small>AI Producer</small>
+      </button>
+      <button class="nav-item" data-section="library">
+        <span>▤</span><small>Library</small>
+      </button>
+    </nav>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </div>
+  <script src="config.js"></script>
+  <script src="recorder.js"></script>
+  <script src="audio-engine.js"></script>
+  <script src="ai-producer.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
