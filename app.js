@@ -418,10 +418,7 @@ document.addEventListener("DOMContentLoaded", function () {
       beats: null,
       effects: null
     };
-    if (section === "beats") {
-      showToast("Beat Maker is coming in the next development phase.");
-      return;
-    }
+   
     if (section === "effects") {
       showToast("Vocal Effects are coming in the next development phase.");
       return;
